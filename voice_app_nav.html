@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dog Control Voice</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
         margin: 0;
@@ -504,27 +505,27 @@
   <!-- Navigation Header -->
   <nav class="nav-header">
     <div class="nav-container">
-      <a href="https://github.com/votre-repo" class="nav-button" target="_blank" rel="noopener noreferrer">
-        <span class="nav-icon">📂</span>
-        <span>Projet</span>
+      <a href="#" class="nav-button" onclick="switchInterface('index')">
+        <i class="fas fa-home nav-icon"></i>
+        <span>Accueil</span>
       </a>
-      <a href="https://docs.example.com" class="nav-button" target="_blank" rel="noopener noreferrer">
-        <span class="nav-icon">📚</span>
-        <span>Docs</span>
+      <a href="#" class="nav-button" onclick="switchInterface('simple')">
+        <i class="fas fa-gamepad nav-icon"></i>
+        <span>Simple</span>
       </a>
-      <a href="https://support.example.com" class="nav-button" target="_blank" rel="noopener noreferrer">
-        <span class="nav-icon">🛠️</span>
-        <span>Support</span>
+      <a href="#" class="nav-button" onclick="switchInterface('vocal')">
+        <i class="fas fa-microphone nav-icon"></i>
+        <span>Mode vocal</span>
       </a>
-      <a href="https://demo.example.com" class="nav-button" target="_blank" rel="noopener noreferrer">
-        <span class="nav-icon">🎯</span>
-        <span>Demo</span>
+      <a href="#" class="nav-button" onclick="switchInterface('advanced')">
+        <i class="fas fa-sliders-h nav-icon"></i>
+        <span>Avancé</span>
       </a>
     </div>
   </nav>
 
   <!-- Toggle Configuration Button -->
-  <button class="toggle-config" id="toggle-config-btn" title="Configuration">⚙️</button>
+  <button class="toggle-config" id="toggle-config-btn" title="Configuration"><i class="fas fa-cog"></i></button>
 
   <div id="app">
     <h1>Dog Control Voice</h1>
@@ -604,7 +605,7 @@
     // Configuration par défaut
     let CONFIG = {
       robotIp: "192.168.106.1:5000",
-      voiceIp: "172.20.10.8:8000"
+      voiceIp: "91.134.83.5:8443"
     };
 
     // Variables globales
@@ -1041,6 +1042,23 @@
       checkBrowserCompatibility();
       initWebSocket();
     });
+
+    function switchInterface(type) {
+      if (type === 'index') {
+        alert('Redirection vers l\'interface d\'accueil (boutons simples)');
+        window.location.href = 'https://d1rsk8xxv9lsa1.cloudfront.net/index.html';
+      } else if (type === 'simple') {
+        alert('Redirection vers l\'interface simple (joystick unique)');
+        window.location.href = 'https://d1rsk8xxv9lsa1.cloudfront.net/simple.html';
+      } else if (type === 'advanced') {
+        alert('Redirection vers l\'interface avancée (double joystick)');
+        window.location.href = 'https://d1rsk8xxv9lsa1.cloudfront.net/advanced.html';
+      } else if (type === 'vocal') {
+        alert('Redirection vers le mode vocal');
+        window.location.href = 'https://bbcvoyage.com/france/hetic/voice-control/index.html';
+      }
+      // 'vocal' = page actuelle
+    }
   </script>
 </body>
 </html>
